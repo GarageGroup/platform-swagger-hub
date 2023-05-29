@@ -1,4 +1,4 @@
-name: Publish AzureFunc
+name: Publish AzureFunc Artifact
 
 on:
   page_build:
