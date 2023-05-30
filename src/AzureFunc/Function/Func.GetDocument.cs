@@ -11,7 +11,7 @@ partial class Function
 {
     [Function("GetSwaggerDocument")]
     public static Task<HttpResponseData> GetSwaggerDocumentAsync(
-        [HttpTrigger(AuthorizationLevel.Function, "GET", Route = "swagger/swagger.{format}")] HttpRequestData request,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "GET", Route = "swagger/swagger.{format}")] HttpRequestData request,
         string? format,
         CancellationToken cancellationToken)
         =>
