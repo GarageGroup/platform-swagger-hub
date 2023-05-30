@@ -1,0 +1,42 @@
+name: Delete AzureFunc Artifact
+
+on:
+  release:
+    types:
+      - deleted
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Get version
+      id: get_version
+      run: echo "version=$(echo $GITHUB_REF | cut -d / -f 3)" >> $GITHUB_ENV
+
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS_ARTIFACT }}
+        
+    - name: Delete from Azure Blob Storage
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.30.0
+        inlineScript: |
+          blob_exists=$(az storage blob exists \
+            --name garage-group-platform-swagger-hub-azure-func-${{ env.version }}.zip \
+            --container-name artifacts \
+            --account-name startifactblob \
+            --auth-mode login --output tsv --query exists)
+
+          if [ $blob_exists = true ]
+          then
+            az storage blob delete \
+              --name garage-group-platform-swagger-hub-azure-func-${{ env.version }}.zip \
+              --container-name artifacts \
+              --account-name startifactblob \
+              --auth-mode login
+            fi
