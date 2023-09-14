@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
@@ -43,7 +45,8 @@ jobs:
         cd ./build
         zip -r garage-group-platform-swagger-hub-azure-func-${{ env.version }}.zip ./
 
-    - uses: azure/login@v1
+    - name: Azure Loging
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS_ARTIFACT }}
 
@@ -59,3 +62,8 @@ jobs:
             --account-key ${{ secrets.AZURE_ACCOUNT_KEY_ARTIFACT }} \
       env:
         AZURE_STORAGE_ACCOUNT: startifactblob
+
+    - name: Azure Logout
+      uses: azure/CLI@v1
+      with:
+        inlineScript: az logout

@@ -1,7 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using GarageGroup.Infra;
-using GGroupp.Infra;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 
