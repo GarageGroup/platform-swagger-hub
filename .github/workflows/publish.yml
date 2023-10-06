@@ -69,6 +69,7 @@ jobs:
         inlineScript: az logout
 
   publish-latest:
+    if: github.event.release.prerelease == false
     runs-on: ubuntu-latest
 
     steps:
