@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{176F4E20-F7C6-4831-BB07-AFC57787E9F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunc", "src\AzureFunc\AzureFunc.csproj", "{AFADD5FD-855A-42B2-AE3F-61BFB1D02E57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{7051446D-E2A9-42FD-A941-78CFC284AFE1}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFADD5FD-855A-42B2-AE3F-61BFB1D02E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFADD5FD-855A-42B2-AE3F-61BFB1D02E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFADD5FD-855A-42B2-AE3F-61BFB1D02E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFADD5FD-855A-42B2-AE3F-61BFB1D02E57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AFADD5FD-855A-42B2-AE3F-61BFB1D02E57} = {176F4E20-F7C6-4831-BB07-AFC57787E9F5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {654BC627-57E5-40D4-ABB2-4FE4CEA63AD0}
+	EndGlobalSection
+EndGlobal
