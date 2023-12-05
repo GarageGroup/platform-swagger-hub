@@ -21,7 +21,7 @@ partial class ApimIdentityHandler
         }
 
         var context = CreateRequestContext(request.RequestUri);
-        var token = await GetTokenCredential().GetTokenAsync(context, cancellationToken);
+        var token = await tokenCredential.GetTokenAsync(context, cancellationToken);
 
         request.Headers.Authorization = new(AuthorizationScheme, token.Token);
         var response = await base.SendAsync(request, cancellationToken);

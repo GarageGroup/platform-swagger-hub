@@ -16,8 +16,8 @@ partial class Function
         =>
         PrimaryHandler.UseStandardSocketsHttpHandler()
         .UseLogging("HubSwaggerDocumentProvider")
-        .UsePollyStandard()
         .Map(ApimIdentityHandler.Resolve)
+        .UsePollyStandard()
         .UseHubSwaggerDocumentProvider(SwaggerSectionKey)
         .GetSwaggerDocumentAsync(request, format, cancellationToken);
 }

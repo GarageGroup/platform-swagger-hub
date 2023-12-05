@@ -17,11 +17,11 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '7.0.x'
+        dotnet-version: '8.0.x'
 
     - name: Add Garage Group NuGet Source
       run: >
-        dotnet nuget add source ${{ secrets.GG_NUGET_SOURCE_URL }}
+        dotnet nuget add source ${{ vars.GG_NUGET_SOURCE_URL }}
         -n ggroupp
         -u ${{ secrets.GG_NUGET_SOURCE_USER_NAME }}
         -p ${{ secrets.GG_NUGET_SOURCE_USER_PASSWORD }}
@@ -43,7 +43,7 @@ jobs:
     - name: Archive publish folder
       run: |
         cd ./build
-        zip -r garage-group-platform-swagger-hub-azure-func-${{ env.version }}.zip ./
+        zip -r garage-group-platform-swagger-hub-azure-func-net8-${{ env.version }}.zip ./
 
     - name: Azure Loging
       uses: azure/login@v1
@@ -57,7 +57,7 @@ jobs:
         inlineScript: |
           az storage blob upload \
             --container-name artifacts \
-            --file ./build/garage-group-platform-swagger-hub-azure-func-${{ env.version }}.zip \
+            --file ./build/garage-group-platform-swagger-hub-azure-func-net8-${{ env.version }}.zip \
             --account-name startifactblob \
             --account-key ${{ secrets.AZURE_ACCOUNT_KEY_ARTIFACT }} \
       env:
@@ -79,11 +79,11 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '7.0.x'
+        dotnet-version: '8.0.x'
 
     - name: Add Garage Group NuGet Source
       run: >
-        dotnet nuget add source ${{ secrets.GG_NUGET_SOURCE_URL }}
+        dotnet nuget add source ${{ vars.GG_NUGET_SOURCE_URL }}
         -n ggroupp
         -u ${{ secrets.GG_NUGET_SOURCE_USER_NAME }}
         -p ${{ secrets.GG_NUGET_SOURCE_USER_PASSWORD }}
@@ -101,7 +101,7 @@ jobs:
     - name: Archive publish folder
       run: |
         cd ./build
-        zip -r garage-group-platform-swagger-hub-azure-func-latest.zip ./
+        zip -r garage-group-platform-swagger-hub-azure-func-net8-latest.zip ./
 
     - name: Azure Loging
       uses: azure/login@v1
@@ -115,7 +115,7 @@ jobs:
         inlineScript: |
           az storage blob upload \
             --container-name artifacts \
-            --file ./build/garage-group-platform-swagger-hub-azure-func-latest.zip \
+            --file ./build/garage-group-platform-swagger-hub-azure-func-net8-latest.zip \
             --account-name startifactblob \
             --account-key ${{ secrets.AZURE_ACCOUNT_KEY_ARTIFACT }} \
       env:
