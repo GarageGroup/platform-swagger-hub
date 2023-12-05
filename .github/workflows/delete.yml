@@ -28,7 +28,7 @@ jobs:
         azcliversion: 2.30.0
         inlineScript: |
           blob_exists=$(az storage blob exists \
-            --name garage-group-platform-swagger-hub-azure-func-${{ env.version }}.zip \
+            --name garage-group-platform-swagger-hub-azure-func-net8-${{ env.version }}.zip \
             --container-name artifacts \
             --account-name startifactblob \
             --auth-mode login --output tsv --query exists)
@@ -36,7 +36,7 @@ jobs:
           if [ $blob_exists = true ]
           then
             az storage blob delete \
-              --name garage-group-platform-swagger-hub-azure-func-${{ env.version }}.zip \
+              --name garage-group-platform-swagger-hub-azure-func-net8-${{ env.version }}.zip \
               --container-name artifacts \
               --account-name startifactblob \
               --auth-mode login
