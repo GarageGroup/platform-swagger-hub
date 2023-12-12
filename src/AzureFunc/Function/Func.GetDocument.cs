@@ -18,7 +18,6 @@ partial class Function
         .UseLogging("HubSwaggerDocumentProvider")
         .Map(ApimIdentityHandler.Resolve)
         .UsePollyStandard()
-        .UseInMemoryCache("HttpCache")
         .UseHubSwaggerDocumentProvider(SwaggerSectionKey)
         .GetSwaggerDocumentAsync(request, format, cancellationToken);
 }
