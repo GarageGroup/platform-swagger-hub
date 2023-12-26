@@ -16,7 +16,7 @@ partial class Function
     {
         var data = new
         {
-            Environment = Environment.GetEnvironmentVariable("ConnectionStrings:AppConfig", EnvironmentVariableTarget.Process),
+            Environment = Environment.GetEnvironmentVariable("ConnectionStrings__AppConfig"),
             Configuration = request.FunctionContext.InstanceServices.GetRequiredService<IConfiguration>().GetConnectionString("AppConfig")
         };
 
