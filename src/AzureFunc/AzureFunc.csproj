@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GarageGroup.Infra.Azure.Hosting" Version="0.7.0" />
+    <PackageReference Include="GarageGroup.Infra.Azure.Hosting" Version="0.7.1" />
     <PackageReference Include="GarageGroup.Infra.Azure.Swagger" Version="0.6.0" />
     <PackageReference Include="GarageGroup.Infra.Http.Cache" Version="0.0.3" />
     <PackageReference Include="GarageGroup.Infra.Http.Polly" Version="1.2.0" />
